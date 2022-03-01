@@ -59,10 +59,13 @@
 Создать новый список, содержащий те же цены, но отсортированные по убыванию.
 Вывести цены пяти самых дорогих товаров. Сможете ли вывести цены этих товаров по возрастанию, написав минимум кода?
 """
-# prices = [57.8, 46.51, 97, 20.02, 150.40, 250, 99.99, 98, 19.99, 49.9]
-# sorted_prices = []
-#
-# for i, num in enumerate(prices):
-#     fix_price = str(f"{float(num):.2f}").split(".")
-#     sorted_prices.append(f"{fix_price[0]} руб {fix_price[1]} коп")
-#     print(f"{fix_price[0]} руб {fix_price[1]} коп")
+prices = [57.8, 46.51, 97, 20.02, 150.40, 250, 99.99, 98, 19.99, 49.9]
+sorted_prices = []
+
+for i, num in enumerate(prices):
+    fix_price = str(f"{float(num):.2f}").split(".")
+    sorted_prices.append(f"{fix_price[0]} руб {fix_price[1]} коп")
+    print(f"{fix_price[0]} руб {fix_price[1]} коп")
+
+new_prices = sorted(sorted_prices)
+print(new_prices)
