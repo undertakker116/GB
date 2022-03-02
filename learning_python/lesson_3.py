@@ -22,16 +22,31 @@
  в котором ключи — первые буквы имён, а значения — списки, содержащие имена, начинающиеся с соответствующей буквы. """
 
 
-def thesaurus(*args):
-    names_dict = {}
-    for i in sorted(args):
-        letter = i[0]
-        if letter in names_dict:
-            names_dict[letter] += [i]
-        else:
-            names_dict[letter] = [i]
-    return
+# def thesaurus(*args):
+#     names_dict = {}
+#     for i in sorted(args):
+#         letter = i[0]
+#         if letter in names_dict:
+#             names_dict[letter] += [i]
+#         else:
+#             names_dict[letter] = [i]
+#     return
 
-thesaurus("Иван", "Мария", "Владимир", "Максим", "Илья", "Макар","Дмитрий")
+# thesaurus("Иван", "Мария", "Владимир", "Максим", "Илья", "Макар","Дмитрий")
 
 
+"""Написать функцию thesaurus_adv(), принимающую в качестве аргументов строки в формате «Имя Фамилия» и возвращающую словарь, 
+в котором ключи — первые буквы фамилий, а значения — словари,
+реализованные по схеме предыдущего задания и содержащие записи, в которых фамилия начинается с соответствующей буквы. """
+
+
+def thesaurus_adv(*args):
+    s_n_sort = {}
+    for s_n in args:
+        s_n_sort.setdefault(s_n.split()[1][0], {}).setdefault(s_n.split()[0][0], []).append(s_n)
+    return s_n_sort
+
+
+print(thesaurus_adv("Иван Иванов", "Мария Габидуллина", "Владимир Путин", "Максим Захарян",
+              "Илья Муромец", "Макар Великий","Дмитрий Медведев","Иван Сергеев", "Инна Серова",
+              "Петр Алексеев", "Илья Иванов", "Анна Савельева"))
